@@ -35,9 +35,16 @@ public class Server {
 
 	        Arrays.sort(urls, (a, b) -> {
 	            if (a.toString().contains("RedisProvider")) {
-	                return 1;
+	                return -1;
                 }
+                if (b.toString().contains("RedisProvider")) {
+                    return 1;
+                }
+
                 if (a.toString().contains("ReaderPlugin") || a.toString().contains("WriterPlugin") ) {
+                    return -1;
+                }
+                if (b.toString().contains("ReaderPlugin") || b.toString().contains("WriterPlugin") ) {
                     return 1;
                 }
                 Comparator<String> c = Comparator.naturalOrder();
